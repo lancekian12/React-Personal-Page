@@ -14,7 +14,7 @@ const About = () => {
 
     return (
         <section className={`bg-background text-textPrimary pt-[100px] mb-24 mt-16 transition-transform duration-1000 transform ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
-            <div className="container h-[620px] mx-auto border border-black rounded-lg p-8">
+            <div className="container h-auto mx-auto border border-black rounded-lg p-8">
                 {/* About Me Text Section */}
                 <div className="text-center mb-8 lg:mb-0">
                     <h2 className="text-3xl font-bold mb-4">About Me</h2>
@@ -22,18 +22,18 @@ const About = () => {
                 </div>
 
                 {/* Profile Image and Text Section */}
-                <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-8">
+                <div className="flex flex-col lg:flex-row items-center justify-center lg:space-x-8">
                     {/* Profile Image */}
-                    <div className="lg:w-5/12 w-9/12 mb-4 lg:mb-0 flex-grow translate-y-[-100px]">
+                    <div className="lg:w-5/12 w-9/12 mb-4 lg:mb-0 flex-grow lg:translate-y-[-100px]">
                         <img
                             src="/picture_client-removebg-preview.png"
                             alt="Edfers Miguel Medenilla"
-                            className="h-full w-full object-cover"
+                            className="h-full w-full object-cover rounded-lg"
                         />
                     </div>
 
                     {/* Profile Description */}
-                    <div className="lg:w-5/12 w-9/12 text-left flex-grow">
+                    <div className="lg:w-5/12 w-9/12 text-center lg:text-left flex-grow">
                         <p className="text-lg mb-4">
                             Hello, I&apos;m Edfers Miguel Medenilla, a 21-year-old residing in Aguilar, Pangasinan.
                             Passionate about electrical engineering, I specialize in creating innovative solutions
