@@ -1,93 +1,114 @@
-// src/pages/Service.js
+import { FaFacebook, FaInstagram, FaGoogle } from 'react-icons/fa';
+import { sendEmail } from '../components/email';
 import { useState } from 'react';
 
-function Service() {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: '',
-    });
+const Services = () => {
+    const [statusMessage, setStatusMessage] = useState('');
+    const [statusType, setStatusType] = useState('');
+    const [loading, setLoading] = useState(false);
 
-    // Handle form input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    // Handle form submission
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData); // Here, you can handle form submission (e.g., sending data to the server)
+        const form = event.target;
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const address = formData.get('address');
+        const message = formData.get('message');
+
+        setLoading(true);
+
+        const templateParams = {
+            from_name: name,
+            from_email: email,
+            address,
+            message,
+        };
+
+        sendEmail(templateParams)
+            .then(() => {
+                setLoading(false);
+                setStatusMessage('Message sent successfully!');
+                setStatusType('success');
+                setTimeout(() => setStatusMessage(''), 5000);  // Auto-clear after 5 seconds
+            })
+            .catch(() => {
+                setLoading(false);
+                setStatusMessage('Failed to send message. Please try again later.');
+                setStatusType('error');
+                setTimeout(() => setStatusMessage(''), 5000);  // Auto-clear after 5 seconds
+            });
     };
 
     return (
-        <div className="w-full h-screen bg-white text-black px-6 py-12">
-            {/* Service Form */}
-            <div className="max-w-4xl mx-auto bg-gray-100 p-8 rounded-lg shadow-md">
-                <h2 className="text-3xl font-bold text-center mb-6">Contact Us for Our Services</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="flex flex-col">
-                        <label htmlFor="name" className="text-lg font-semibold">Full Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleInputChange}
-                            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
+        <div className="bg-background py-16">
+            <div className="container mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between mt-10">
+                <div className="lg:w-1/2 mb-12 lg:mb-0 mr-20">
+                    <h2 className="text-3xl font-semibold text-textPrimary">CONTACT US</h2>
+                    <h1 className="text-6xl font-bold text-textPrimary mt-2">Get in touch today</h1>
+                    <p className="text-textSecondary mt-4">We love questions and feedback, and we’re always happy to help!</p>
+                    <div className="mt-8">
+                        <div className="flex items-center bg-gray-50 p-4 rounded-lg mb-4">
+                            <span className="text-2xl mr-4">📧</span>
+                            <div>
+                                <p className="text-textPrimary">Email:</p>
+                                <p className="text-black">edfersmedenilla6@gmail.com</p>
+                            </div>
+                        </div>
+                        <div className="flex items-center bg-gray-50 p-4 rounded-lg mb-4">
+                            <span className="text-2xl mr-4">📞</span>
+                            <div>
+                                <p className="text-textPrimary">Phone:</p>
+                                <p className="text-black">09565797227</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex flex-col">
-                        <label htmlFor="email" className="text-lg font-semibold">Email Address</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            required
-                        />
+                    <div className="mt-8 flex space-x-4">
+                        <p className="text-textPrimary">Reach us:</p>
+                        <a href="https://www.facebook.com/" target="_blank" className="text-black hover:text-blue-600 transition duration-300">
+                            <FaFacebook size={30} />
+                        </a>
+                        <a href="https://www.instagram.com/" target="_blank" className="text-black hover:text-pink-600 transition duration-300">
+                            <FaInstagram size={30} />
+                        </a>
+                        <a href="mailto:edfersmedenilla6@gmail.com" target="_blank" className="text-black hover:text-red-600 transition duration-300">
+                            <FaGoogle size={30} />
+                        </a>
                     </div>
-                    <div className="flex flex-col">
-                        <label htmlFor="message" className="text-lg font-semibold">Message</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            rows="4"
-                            required
-                        ></textarea>
-                    </div>
-                    <button type="submit" className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">
-                        Submit
-                    </button>
-                </form>
-            </div>
+                </div>
 
-            {/* Benefits Section (cards) */}
-            <div className="max-w-4xl mx-auto mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-semibold mb-4">Benefit 1</h3>
-                    <p className="text-gray-600">Learn how our service helps you save time and increase productivity.</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-semibold mb-4">Benefit 2</h3>
-                    <p className="text-gray-600">Get reliable support and assistance whenever you need it.</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-md">
-                    <h3 className="text-xl font-semibold mb-4">Benefit 3</h3>
-                    <p className="text-gray-600">Enjoy premium features and benefits that help you achieve your goals.</p>
+                <div className="lg:w-1/2 bg-white p-8 rounded-lg shadow-md ml-10">
+                    {statusMessage && (
+                        <div className={`mb-4 p-4 rounded-lg text-white ${statusType === 'success' ? 'bg-green-500' : 'bg-red-500'}`}>
+                            {statusMessage}
+                        </div>
+                    )}
+                    <form onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label className="block text-textPrimary mb-2" htmlFor="name">Full Name</label>
+                            <input className="w-full p-3 border rounded-lg focus:outline-none focus:ring focus:ring-primary" type="text" name="name" placeholder="Your Name" required />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-textPrimary mb-2" htmlFor="email">Email</label>
+                            <input className="w-full p-3 border rounded-lg focus:outline-none focus:ring focus:ring-primary" type="email" name="email" placeholder="Your Email Address" required />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-textPrimary mb-2" htmlFor="address">Address</label>
+                            <input className="w-full p-3 border rounded-lg focus:outline-none focus:ring focus:ring-primary" type="text" name="address" placeholder="Your Address" required />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-textPrimary mb-2" htmlFor="message">Leave us a message</label>
+                            <textarea className="w-full p-3 border rounded-lg focus:outline-none focus:ring focus:ring-primary" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+                        </div>
+                        <button type="submit" className="w-full p-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors" disabled={loading}>
+                            {loading ? 'Sending...' : 'Send Message'}
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     );
-}
+};
 
-export default Service;
+export default Services;

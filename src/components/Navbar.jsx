@@ -14,7 +14,9 @@ function Navbar() {
                 <ul className={`lg:flex ${isMenuOpen ? 'block' : 'hidden'} space-x-8`}>
                     <li><Link to="/" className="hover:text-gray-500 transition-colors">Home</Link></li>
                     <li><Link to="/about" className="hover:text-gray-500 transition-colors">About</Link></li>
+                    <li><Link to="/features" className="hover:text-gray-500 transition-colors">Features</Link></li>
                     <li><Link to="/service" className="hover:text-gray-500 transition-colors">Service</Link></li>
+
                 </ul>
                 {/* Mobile Hamburger Menu */}
                 <button

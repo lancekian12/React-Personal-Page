@@ -2,7 +2,7 @@ import { FaFacebook, FaInstagram, FaGoogle } from 'react-icons/fa';
 
 const About = () => {
     return (
-        <section className="bg-background text-textPrimary pt-[100px]">
+        <section className="bg-background text-textPrimary pt-[100px] mb-24 mt-16">
             <div className="container h-[620px] mx-auto border border-black rounded-lg p-8">
                 {/* About Me Text Section */}
                 <div className="text-center mb-8 lg:mb-0">

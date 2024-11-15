@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Home() {
     const [isVisible, setIsVisible] = useState(false);
@@ -52,10 +54,12 @@ function Home() {
                 <div
                     className={`mt-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-40px]'}`}
                 >
-                    <button className="bg-black text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 flex items-center space-x-3">
-                        <span>Let’s Chat</span>
-                        <span className="text-lg">➔</span>
-                    </button>
+                    <Link to="/service">
+                        <button className="bg-black text-white font-semibold px-8 py-4 rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 flex items-center space-x-3">
+                            <span>Get in Touch</span>
+                            <span className="text-lg">➔</span>
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
