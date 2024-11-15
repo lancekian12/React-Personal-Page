@@ -6,7 +6,7 @@ export default {
       colors: {
         primary: "#3b82f6", // Deep Blue (for links and buttons)
         background: "#ffffff", // White background for sections
-        accent: "#fbbf24", // Yellow accent color
+        accent: "#e5e7eb", // Gray-200 accent color
         textPrimary: "#000000", // Black text for headings
         textSecondary: "#a1a1aa", // Gray text for subheadings
       },

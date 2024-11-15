@@ -1,5 +1,60 @@
-function About() {
-    return <h1 className="text-center text-2xl mt-4">About Us</h1>;
-}
+import { FaFacebook, FaInstagram, FaGoogle } from 'react-icons/fa';
+
+const About = () => {
+    return (
+        <section className="bg-background text-textPrimary pt-[100px]">
+            <div className="container h-[620px] mx-auto border border-black rounded-lg p-8">
+                {/* About Me Text Section */}
+                <div className="text-center mb-8 lg:mb-0">
+                    <h2 className="text-3xl font-bold mb-4">About Me</h2>
+                    <hr className="w-full border-1 border-black mx-auto" />
+                </div>
+
+                {/* Profile Image and Text Section */}
+                <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-8">
+                    {/* Profile Image */}
+                    <div className="lg:w-5/12 w-9/12 mb-4 lg:mb-0 flex-grow translate-y-[-100px]">
+                        <img
+                            src="/picture_client-removebg-preview.png"
+                            alt="Edfers Miguel Medenilla"
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
+
+                    {/* Profile Description */}
+                    <div className="lg:w-5/12 w-9/12 text-left flex-grow">
+                        <p className="text-lg mb-4">
+                            Hello, I&apos;m Edfers Miguel Medenilla, a 21-year-old residing in Aguilar City, Pangasinan.
+                            Passionate about electrical engineering, I specialize in creating innovative solutions
+                            and designs for electrical systems. With a strong foundation in engineering,
+                            I&apos;m dedicated to staying current with industry trends and technologies.
+                        </p>
+                        <div className="flex justify-center gap-6 mt-6">
+                            {/* Social Media Icons */}
+                            <a
+                                href="https://www.facebook.com/lancekian12"
+                                className="text-black text-2xl hover:text-accent"
+                            >
+                                <FaFacebook />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/lancekiaaan/"
+                                className="text-black text-2xl hover:text-accent"
+                            >
+                                <FaInstagram />
+                            </a>
+                            <a
+                                href="mailto:lance.kian@gmail.com"
+                                className="text-black text-2xl hover:text-accent"
+                            >
+                                <FaGoogle />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
 
 export default About;
