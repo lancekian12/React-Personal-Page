@@ -2,3 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-typewriter {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation: typewriter 3s steps(30) 1s 1 normal both;
+}

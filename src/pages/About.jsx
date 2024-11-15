@@ -24,7 +24,7 @@ const About = () => {
                     {/* Profile Description */}
                     <div className="lg:w-5/12 w-9/12 text-left flex-grow">
                         <p className="text-lg mb-4">
-                            Hello, I&apos;m Edfers Miguel Medenilla, a 21-year-old residing in Aguilar City, Pangasinan.
+                            Hello, I&apos;m Edfers Miguel Medenilla, a 21-year-old residing in Aguilar, Pangasinan.
                             Passionate about electrical engineering, I specialize in creating innovative solutions
                             and designs for electrical systems. With a strong foundation in engineering,
                             I&apos;m dedicated to staying current with industry trends and technologies.
@@ -32,22 +32,28 @@ const About = () => {
                         <div className="flex justify-center gap-6 mt-6">
                             {/* Social Media Icons */}
                             <a
-                                href="https://www.facebook.com/lancekian12"
-                                className="text-black text-2xl hover:text-accent"
+                                href="https://www.facebook.com/people/Edfers-Miguel-Medenilla/pfbid02kRJEppEzKUg2SqzAyPK9m22wzEHAA8GuXuRtPUuMv5C7E4fAGwUaWqN7oHMhTY1ol/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-black hover:text-blue-600 transition duration-300"
                             >
-                                <FaFacebook />
+                                <FaFacebook size={30} />
                             </a>
                             <a
-                                href="https://www.instagram.com/lancekiaaan/"
-                                className="text-black text-2xl hover:text-accent"
+                                href="https://www.instagram.com/medenillaedfersmiguel/profilecard/?igsh=MWw2YmI4dTk2aHN4aw%3D%3D"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-black hover:text-pink-600 transition duration-300"
                             >
-                                <FaInstagram />
+                                <FaInstagram size={30} />
                             </a>
                             <a
-                                href="mailto:lance.kian@gmail.com"
-                                className="text-black text-2xl hover:text-accent"
+                                href="mailto:edfersmedenilla6@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-black hover:text-red-600 transition duration-300"
                             >
-                                <FaGoogle />
+                                <FaGoogle size={30} />
                             </a>
                         </div>
                     </div>
