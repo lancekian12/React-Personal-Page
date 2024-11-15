@@ -39,12 +39,12 @@ function Home() {
                 </div>
 
                 {/* Left Side Message */}
-                <div className="flex flex-col justify-center lg:w-1/2 space-y-4 text-center lg:text-left px-4 sm:px-6 lg:px-10">
-                    <h2 className="text-2xl lg:text-4xl font-extrabold text-black leading-6 lg:leading-10 pb-2">
+                <div className="flex flex-col justify-center lg:w-1/2 space-y-4 text-center lg:text-left px-4 sm:px-6 lg:px-10 ">
+                    <h2 className="text-2xl lg:text-4xl font-extrabold text-black leading-6 lg:leading-10 pb-2 animate-typewriter">
                         Smart Electrical System Dashboard <br />
                         for Commercial High-Rise Building
                     </h2>
-                    <p className="text-base lg:text-lg text-gray-400 pb-2">
+                    <p className="text-base lg:text-lg text-gray-400 pb-2 animate-typewriter">
                         Specialized in Smart Electrical System Dashboards for Commercial High-Rise Buildings
                     </p>
 

@@ -6,16 +6,18 @@
 @keyframes typewriter {
   0% {
     width: 0;
+    opacity: 0;
   }
   100% {
     width: 100%;
+    opacity: 1;
   }
 }
 
 .animate-typewriter {
   display: inline-block;
-  white-space: nowrap;
   overflow: hidden;
-  width: 0;
-  animation: typewriter 3s steps(30) 1s 1 normal both;
+  white-space: nowrap;
+  border-right: 2px solid;
+  animation: typewriter 1s steps(40) 1s 1 normal both;
 }
