@@ -1,6 +1,25 @@
+import { useState, useEffect } from 'react';
 import services from '../data/serviceData';
 
 function Features() {
+    const [visibleIndex, setVisibleIndex] = useState(0);
+
+    useEffect(() => {
+        // Set a delay for each card to slide in one by one
+        const timer = setInterval(() => {
+            setVisibleIndex(prevIndex => {
+                if (prevIndex < services.length - 1) {
+                    return prevIndex + 1;
+                } else {
+                    clearInterval(timer); // Stop when all cards are shown
+                    return prevIndex;
+                }
+            });
+        }, 200); // Adjust the delay (200ms between each card)
+
+        return () => clearInterval(timer); // Cleanup interval on component unmount
+    }, []);
+
     return (
         <div className="bg-background py-16 my-24">
             <div className="text-center mb-12">
@@ -13,7 +32,8 @@ function Features() {
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="text-center p-8 border rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
+                        className={`text-center p-8 border rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all transform ${index <= visibleIndex ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+                            } transition-transform duration-1000 ease-out`}
                     >
                         <div className="text-5xl text-primary mb-6">{service.icon}</div>
                         <h2 className="text-2xl font-semibold text-textPrimary">{service.title}</h2>

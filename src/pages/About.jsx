@@ -1,8 +1,19 @@
+import { useEffect, useState } from 'react';
 import { FaFacebook, FaInstagram, FaGoogle } from 'react-icons/fa';
 
 const About = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Slide-in effect on component mount
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsVisible(true);
+        }, 100); // Delay for slide-in effect
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <section className="bg-background text-textPrimary pt-[100px] mb-24 mt-16">
+        <section className={`bg-background text-textPrimary pt-[100px] mb-24 mt-16 transition-transform duration-1000 transform ${isVisible ? 'translate-x-0' : '-translate-x-full'}`}>
             <div className="container h-[620px] mx-auto border border-black rounded-lg p-8">
                 {/* About Me Text Section */}
                 <div className="text-center mb-8 lg:mb-0">
