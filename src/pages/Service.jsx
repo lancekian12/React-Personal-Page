@@ -77,7 +77,7 @@ const Services = () => {
                             <span className="text-2xl mr-4">📧</span>
                             <div>
                                 <p className="text-textPrimary">Email:</p>
-                                <p className="text-black">edfersmedenilla6@gmail.com</p>
+                                <p className="text-black">Electrical System Dashboard</p>
                             </div>
                         </div>
                         <div className="flex items-center bg-gray-50 p-4 rounded-lg mb-4">
