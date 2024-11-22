@@ -34,7 +34,7 @@ function Features() {
                     onClick={() => navigate('/service')}
                     className="mt-6 px-8 py-3 bg-black text-white rounded-lg hover:bg-gray-800 focus:outline-none"
                 >
-                    Appoint Now
+                    Appointment Now
                 </button>
             </div>
 
